@@ -1,6 +1,7 @@
 import { ReactElement } from 'react'
 import { Dialog, DialogContent } from './dialog'
 import { X } from 'lucide-react'
+import { DialogTitle } from '@radix-ui/react-dialog'
 
 interface ModalProps {
 	isOpen?: boolean
@@ -21,6 +22,7 @@ export default function Modal({
 }: ModalProps) {
 	return (
 		<Dialog open={isOpen} onOpenChange={onClose}>
+			<DialogTitle className='hidden'></DialogTitle>
 			<DialogContent className='bg-black p-2'>
 				<div className='flex items-center gap-6'>
 					<button
