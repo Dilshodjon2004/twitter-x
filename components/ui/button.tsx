@@ -10,6 +10,7 @@ interface ButtonProps {
 	outline?: boolean
 	type?: 'button' | 'submit'
 	onClick?: () => void
+	classNames?: string
 }
 
 export default function Button({
@@ -21,6 +22,7 @@ export default function Button({
 	outline,
 	type,
 	onClick,
+	classNames,
 }: ButtonProps) {
 	return (
 		<button
@@ -34,7 +36,8 @@ export default function Button({
 				large ? 'text-xl px-5 py-3' : 'text-md px-4 py-3',
 				outline
 					? 'bg-transparent border-slate-600 text-sky-500 hover:bg-slate-800/40'
-					: ''
+					: '',
+				classNames
 			)}
 		>
 			{label}
