@@ -11,10 +11,9 @@ export async function GET(req: Request, route: { params: { userId: string } }) {
 		const { searchParams } = new URL(req.url)
 		const limit = searchParams.get('limit')
 		const { userId } = route.params
-		console.log(userId)
 
+		// @typescript-eslint/no-explicit-any
 		const { currentUser }: any = await getServerSession(authOptions)
-
 		const posts = await Post.find({ user: route.params.userId })
 			.populate({
 				path: 'user',

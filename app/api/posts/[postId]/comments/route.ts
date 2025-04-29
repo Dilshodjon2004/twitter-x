@@ -5,14 +5,12 @@ import { authOptions } from '@/lib/auth-options'
 import { connectToDatabase } from '@/lib/mongoose'
 import { getServerSession } from 'next-auth'
 import { NextResponse } from 'next/server'
-import path from 'path'
-import { any } from 'zod'
 
 export async function GET(req: Request, route: { params: { postId: string } }) {
 	try {
 		await connectToDatabase()
 		const { postId } = route.params
-
+		// @typescript-eslint/no-explicit-any
 		const { currentUser }: any = await getServerSession(authOptions)
 
 		const post = await Post.findById(postId)
@@ -29,7 +27,7 @@ export async function GET(req: Request, route: { params: { postId: string } }) {
 				},
 			})
 	
-			
+		// @typescript-eslint/no-explicit-any
 		const filteredComments = post.comments.map((item: any) => ({
 			_id: item._id,
 			body: item.body,

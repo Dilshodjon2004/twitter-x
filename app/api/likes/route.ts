@@ -39,7 +39,7 @@ export async function DELETE(req: Request) {
 	try {
 		await connectToDatabase()
 		const { postId, userId } = await req.json()
-		const post = await Post.findByIdAndUpdate(
+		await Post.findByIdAndUpdate(
 			postId,
 			{
 				$pull: { likes: userId },

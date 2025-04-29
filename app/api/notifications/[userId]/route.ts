@@ -1,7 +1,6 @@
 import Notification from '@/database/notification.model'
 import User from '@/database/user.model'
 import { connectToDatabase } from '@/lib/mongoose'
-import { revalidatePath } from 'next/cache'
 import { NextResponse } from 'next/server'
 
 export async function GET(req: Request, route: { params: { userId: string } }) {

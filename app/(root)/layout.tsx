@@ -11,6 +11,7 @@ interface Props {
 }
 
 const Layout = async ({ children }: Props) => {
+	// @typescript-eslint/no-explicit-any
 	const session: any = await getServerSession(authOptions)
 	if (!session) {
 		return (

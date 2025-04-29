@@ -24,6 +24,7 @@ export async function GET(req: Request) {
 		const { searchParams } = new URL(req.url)
 		const limit = searchParams.get('limit')
 
+		// @typescript-eslint/no-explicit-any
 		const { currentUser }: any = await getServerSession(authOptions)
 
 		const posts = await Post.find({})
@@ -61,7 +62,7 @@ export async function GET(req: Request) {
 export async function DELETE(req: Request) {
 	try {
 		await connectToDatabase()
-		const { postId, userId } = await req.json()
+		const { postId } = await req.json()
 
 		await Post.findOneAndDelete(postId)
 

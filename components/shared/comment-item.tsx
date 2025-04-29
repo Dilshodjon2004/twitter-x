@@ -67,6 +67,7 @@ const CommentItem = ({ comment, user, setComments, comments }: Props) => {
 		}
 	}
 
+	// @typescript-eslint/no-explicit-any
 	const goToProfile = (evt: any) => {
 		evt.stopPropagation()
 		router.push(`/profile/${comment.user._id}`)

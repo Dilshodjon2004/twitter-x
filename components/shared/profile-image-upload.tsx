@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import { useCallback, useState } from 'react'
 import { useDropzone } from 'react-dropzone'
-import { IoIosCloudDownload, IoMdDownload } from 'react-icons/io'
+import { IoMdDownload } from 'react-icons/io'
 import { MdEdit } from 'react-icons/md'
 
 interface Props {
@@ -22,11 +22,13 @@ const ProfileImageUpload = ({ profileImage, onChange }: Props) => {
 	)
 
 	const handleDrop = useCallback(
+		// @typescript-eslint/no-explicit-any
 		(files: any) => {
 			console.log(files)
 
 			const file = files[0]
 			const reader = new FileReader()
+			// @typescript-eslint/no-explicit-any
 			reader.onload = (event: any) => {
 				setImage(event.target.result)
 				handleChange(event.target.result)

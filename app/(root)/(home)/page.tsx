@@ -10,6 +10,7 @@ import { useSession } from 'next-auth/react'
 import { useEffect, useState } from 'react'
 
 export default function HomePage() {
+	// @typescript-eslint/no-explicit-any
 	const { data: session, status }: any = useSession()
 	const [isLoading, setIsLoading] = useState(false)
 	const [posts, setPosts] = useState<IPost[]>([])

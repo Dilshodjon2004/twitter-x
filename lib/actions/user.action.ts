@@ -10,6 +10,7 @@ export async function getUserById(userId: string) {
 		await connectToDatabase()
 
 		const user = await User.findById(userId)
+		// @typescript-eslint/no-explicit-any
 		const { currentUser }: any = await getServerSession(authOptions)
 
 		const filteredUser = {

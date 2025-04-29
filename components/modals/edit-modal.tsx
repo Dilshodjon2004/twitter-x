@@ -37,6 +37,8 @@ const EditModal = ({ user }: Props) => {
 			router.refresh()
 			setIsLoading(false)
 		} catch (error) {
+			console.log(error)
+
 			setIsLoading(false)
 		}
 	}

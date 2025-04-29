@@ -6,9 +6,7 @@ import useNotifications from '@/hooks/useNotifications'
 import { IPost } from '@/types'
 import axios from 'axios'
 import { Loader2 } from 'lucide-react'
-import { revalidatePath } from 'next/cache'
 import Image from 'next/image'
-import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 
 const Page = ({ params }: { params: { userId: string } }) => {

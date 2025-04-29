@@ -40,6 +40,7 @@ export default function LoginModal() {
 				signIn('credentials', values)
 				loginModal.onClose()
 			}
+			// @typescript-eslint/no-explicit-any
 		} catch (error: any) {
 			if (error.response.data.error) {
 				setError(error.response.data.error)

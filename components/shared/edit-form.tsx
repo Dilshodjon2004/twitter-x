@@ -39,6 +39,7 @@ const EditForm = ({ user }: Props) => {
 			await axios.put(`/api/users/${user._id}?type=updateFields`, values)
 			router.refresh()
 			editModal.onClose()
+			// @typescript-eslint/no-explicit-any
 		} catch (error: any) {
 			if (error.response.data.error) {
 				return toast({

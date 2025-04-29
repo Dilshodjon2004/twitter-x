@@ -79,6 +79,7 @@ const ProfileBio = ({ user, userId }: { user: IUser; userId: string }) => {
 	const onFollowing = async () => {
 		setState('following')
 		if (following.length === 0) {
+			// @typescript-eslint/no-unused-expressions
 			const { data } = await getFollowUser(user._id, 'following')
 			data && setFollowing(data)
 		}
@@ -87,11 +88,13 @@ const ProfileBio = ({ user, userId }: { user: IUser; userId: string }) => {
 	const onFollowers = async () => {
 		setState('followers')
 		if (followers.length === 0) {
+			// @typescript-eslint/no-unused-expressions
 			const { data } = await getFollowUser(user._id, 'followers')
 			data && setFollowers(data)
 		}
 	}
 
+	// @typescript-eslint/no-unused-vars
 	const onChangeFollowing = async (data: IUser[]) => {}
 
 	return (

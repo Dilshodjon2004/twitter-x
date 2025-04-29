@@ -17,6 +17,7 @@ interface Props {
 
 const User = ({ user, onChangeFollowing, isFollow, following }: Props) => {
 	const [isLoading, setIsLoading] = useState(false)
+	// @typescript-eslint/no-explicit-any
 	const { data: session }: any = useSession()
 	const router = useRouter()
 
@@ -28,6 +29,7 @@ const User = ({ user, onChangeFollowing, isFollow, following }: Props) => {
 				currentUserId: session.currentUserId._id,
 			})
 			const updatedFollowing = [...(following as IUser[]), user]
+			// @typescript-eslint/no-unused-expressions
 			onChangeFollowing && onChangeFollowing(updatedFollowing)
 			router.refresh()
 			setIsLoading(false)

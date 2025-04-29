@@ -23,6 +23,7 @@ const PostItem = ({ post, user, setPosts }: Props) => {
 
 	const router = useRouter()
 
+	// @typescript-eslint/no-explicit-any
 	const onDelete = async (e: any) => {
 		e.stopPropagation()
 		try {
@@ -37,6 +38,7 @@ const PostItem = ({ post, user, setPosts }: Props) => {
 			})
 			setIsLoading(false)
 		} catch (error) {
+			console.log(error)
 			setIsLoading(false)
 			toast({
 				title: 'Error',
@@ -46,6 +48,7 @@ const PostItem = ({ post, user, setPosts }: Props) => {
 		}
 	}
 
+	// @typescript-eslint/no-explicit-any
 	const onLike = async (e: any) => {
 		e.stopPropagation()
 		try {
@@ -78,6 +81,7 @@ const PostItem = ({ post, user, setPosts }: Props) => {
 
 			setIsLoading(false)
 		} catch (error) {
+			console.log(error)
 			setIsLoading(false)
 			toast({
 				title: 'Error',
@@ -91,6 +95,7 @@ const PostItem = ({ post, user, setPosts }: Props) => {
 		router.push(`/posts/${post._id}`)
 	}
 
+	// @typescript-eslint/no-explicit-any
 	const goToProfile = (evt: any) => {
 		evt.stopPropagation()
 		router.push(`/profile/${post.user._id}`)

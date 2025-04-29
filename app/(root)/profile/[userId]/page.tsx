@@ -10,6 +10,7 @@ import React from 'react'
 
 const Page = async ({ params }: { params: { userId: string } }) => {
 	const user: IUser = await getUserById(params.userId)
+	// @typescript-eslint/no-explicit-any
 	const session: any = await getServerSession(authOptions)
 
 	return (

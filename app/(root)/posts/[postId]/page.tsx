@@ -13,6 +13,7 @@ import { useSession } from 'next-auth/react'
 import { useEffect, useState } from 'react'
 
 const Page = ({ params }: { params: { postId: string } }) => {
+	// @typescript-eslint/no-explicit-any
 	const { data: session, status }: any = useSession()
 	const [isLoading, setIsLoading] = useState(false)
 	const [isFetchingComment, setIsFetchingComment] = useState(false)

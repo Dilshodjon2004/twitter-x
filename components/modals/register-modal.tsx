@@ -84,6 +84,7 @@ function RegisterStep1({
 				setData(values)
 				setStep(2)
 			}
+			// @typescript-eslint/no-explicit-any
 		} catch (error: any) {
 			if (error.response.data.error) {
 				setError(error.response.data.error)
@@ -169,6 +170,7 @@ function RegisterStep2({ data }: { data: { name: string; email: string } }) {
 				})
 				registerModal.onClose()
 			}
+			// @typescript-eslint/no-explicit-any
 		} catch (error: any) {
 			if (error.response.data.error) {
 				setError(error.response.data.error)

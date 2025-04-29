@@ -39,6 +39,7 @@ export async function POST(req: Request) {
 export async function PUT(req: Request) {
 	try {
 		await connectToDatabase()
+		// @typescript-eslint/no-explicit-any
 		const { currentUser }: any = await getServerSession(authOptions)
 		const { commentId } = await req.json()
 
@@ -67,6 +68,7 @@ export async function PUT(req: Request) {
 export async function DELETE(req: Request) {
 	try {
 		await connectToDatabase()
+		// @typescript-eslint/no-explicit-any
 		const { currentUser }: any = await getServerSession(authOptions)
 		const { commentId } = await req.json()
 
