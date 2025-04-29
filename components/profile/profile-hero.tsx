@@ -1,5 +1,6 @@
 import { IUser } from '@/types'
 import Image from 'next/image'
+import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar'
 
 const ProfileHero = ({ user }: { user: IUser }) => {
 	return (
@@ -19,6 +20,13 @@ const ProfileHero = ({ user }: { user: IUser }) => {
 					style={{ objectFit: 'cover' }}
 				/>
 			)}
+
+			<div className='absolute -bottom-16 left-4'>
+				<Avatar className='w-32 h-32'>
+					<AvatarImage src={user.profileImage} />
+					<AvatarFallback className='text-7xl'>{user.name[0]}</AvatarFallback>
+				</Avatar>
+			</div>
 		</div>
 	)
 }

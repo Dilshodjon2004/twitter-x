@@ -10,6 +10,7 @@ interface Props {
 }
 
 const SidebarAccount = ({ user }: Props) => {
+	
 	return (
 		<>
 			{/* Mobile sidebar account */}
@@ -28,13 +29,13 @@ const SidebarAccount = ({ user }: Props) => {
 					<div className='flex justify-between items-center gap-2'>
 						<div className='flex gap-2 items-center'>
 							<Avatar>
-								<AvatarImage src={user.profileImage} />
-								<AvatarFallback>{user.name[0]}</AvatarFallback>
+								<AvatarImage src={user?.profileImage} />
+								<AvatarFallback>{user?.name[0]}</AvatarFallback>
 							</Avatar>
 							<div className='flex flex-col items-start text-white'>
-								<p>{user.name}</p>
-								{user.username ? (
-									<p className='opacity-40'>{user.username}</p>
+								<p>{user?.name}</p>
+								{user?.username ? (
+									<p className='opacity-40'>@{user?.username}</p>
 								) : (
 									<p className='opacity-40'>Manage account</p>
 								)}
@@ -48,7 +49,7 @@ const SidebarAccount = ({ user }: Props) => {
 						className='font-bold text-white cursor-pointer hover:bg-slate-300 hover:bg-opacity-10 p-4 transition'
 						onClick={() => signOut()}
 					>
-						Log out {user.username ? `@${user.username}` : user.name}
+						Log out {user?.username ? `@${user?.username}` : user?.name}
 					</div>
 				</PopoverContent>
 			</Popover>

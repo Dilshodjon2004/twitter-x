@@ -2,6 +2,7 @@ import { ReactElement } from 'react'
 import { Dialog, DialogContent } from './dialog'
 import { X } from 'lucide-react'
 import { DialogTitle } from '@radix-ui/react-dialog'
+import { cn } from '@/lib/utils'
 
 interface ModalProps {
 	isOpen?: boolean
@@ -10,6 +11,7 @@ interface ModalProps {
 	footer?: ReactElement
 	step?: number
 	totalSteps?: number
+	isEditing: boolean
 }
 
 export default function Modal({
@@ -19,11 +21,17 @@ export default function Modal({
 	onClose,
 	totalSteps,
 	step,
+	isEditing,
 }: ModalProps) {
 	return (
 		<Dialog open={isOpen} onOpenChange={onClose}>
 			<DialogTitle className='hidden'></DialogTitle>
-			<DialogContent className='bg-black p-2'>
+			<DialogContent
+				className={cn(
+					'bg-black p-2',
+					isEditing && 'h-[80vh] overflow-x-hidden overflow-y-auto'
+				)}
+			>
 				<div className='flex items-center gap-6'>
 					<button
 						className='p-1 border-0 text-white hover:opacity-70 transition w-fit'

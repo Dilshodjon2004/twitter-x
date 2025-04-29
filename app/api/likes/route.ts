@@ -1,4 +1,6 @@
+import Notification from '@/database/notification.model'
 import Post from '@/database/post.model'
+import User from '@/database/user.model'
 import { connectToDatabase } from '@/lib/mongoose'
 import { NextResponse } from 'next/server'
 
@@ -13,6 +15,19 @@ export async function PUT(req: Request) {
 			},
 			{ new: true }
 		)
+
+		const likedUser = await User.findById(userId)
+
+		await Notification.create({
+			user: String(post.user),
+			body: `${likedUser.name} liked your post`,
+		})
+
+		await User.findOneAndUpdate(
+			{ _id: String(post.user) },
+			{ $set: { hasNewNotifications: true } }
+		)
+
 		return NextResponse.json({ success: true })
 	} catch (error) {
 		const result = error as Error

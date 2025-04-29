@@ -1,13 +1,14 @@
 import { LucideIcon } from 'lucide-react'
-
+import { BsDot } from 'react-icons/bs'
 interface Props {
 	item: {
 		label: string
 		icon: string | LucideIcon
+		notification?: boolean
 	}
 }
 
-const SidebarItem = ({ item: { icon: Icon, label } }: Props) => {
+const SidebarItem = ({ item: { icon: Icon, label, notification } }: Props) => {
 	return (
 		<div className='flex flex-row items-center'>
 			{/* Mobile sidebar item */}
@@ -19,6 +20,7 @@ const SidebarItem = ({ item: { icon: Icon, label } }: Props) => {
 			<div className='relative hidden lg:flex gap-4 p-4 rounded-full hover:bg-slate-300 hover:bg-opacity-10 cursor-pointer items-center'>
 				<Icon size={28} color='white' />
 				<p className='hidden lg:block text-xl text-white'>{label}</p>
+				{notification ? <BsDot className={"text-sky-500 absolute -top-4 left-0"} size={70} /> : null}
 			</div>
 		</div>
 	)
