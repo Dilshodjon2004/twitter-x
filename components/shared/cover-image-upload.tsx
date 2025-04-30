@@ -23,8 +23,6 @@ const CoverImageUpload = ({ coverImage, onChange }: Props) => {
 	const handleDrop = useCallback(
 		// @typescript-eslint/no-explicit-any
 		(files: any) => {
-			console.log(files)
-
 			const file = files[0]
 			const reader = new FileReader()
 			// @typescript-eslint/no-explicit-any

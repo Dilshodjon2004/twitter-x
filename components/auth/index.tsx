@@ -16,7 +16,6 @@ export default function Auth() {
 	const loginModal = useLoginModal()
 
 	const { data } = useSession()
-	console.log(data)
 
 	const onOpenRegisterModal = useCallback(() => {
 		registerModal.onOpen()

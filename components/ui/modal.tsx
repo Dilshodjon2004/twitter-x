@@ -11,7 +11,7 @@ interface ModalProps {
 	footer?: ReactElement
 	step?: number
 	totalSteps?: number
-	isEditing: boolean
+	isEditing?: boolean
 }
 
 export default function Modal({

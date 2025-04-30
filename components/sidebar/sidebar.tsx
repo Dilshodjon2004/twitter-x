@@ -10,8 +10,6 @@ import { IUser } from '@/types'
 import { MdOutlineExplore } from 'react-icons/md'
 
 const Sidebar = ({ user }: { user: IUser }) => {
-	console.log(user)
-
 	const sidebarItems = [
 		{
 			label: 'Home',

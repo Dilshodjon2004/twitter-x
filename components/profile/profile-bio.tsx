@@ -63,6 +63,8 @@ const ProfileBio = ({ user, userId }: { user: IUser; userId: string }) => {
 			return { data }
 		} catch (error) {
 			console.log(error)
+			setIsFetching(false)
+			return { data: [] } // or null, based on your expected fallback
 		}
 	}
 

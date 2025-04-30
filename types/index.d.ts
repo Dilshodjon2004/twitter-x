@@ -11,9 +11,10 @@ export interface IUser {
 	location: string
 	followers: string[]
 	following: string[]
-	hasNewNotifications: boolean
-	notifications: string[]
+	hasNewNotifications?: boolean
+	notifications?: string[]
 	isFollowing: boolean
+	updatedAt?: Date
 }
 
 export interface IPost {
